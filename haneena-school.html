@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدرسة حنينا الأساسية المختلطة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --navy: #0B2545;
+  --navy-mid: #13395E;
+  --navy-light: #1E5287;
+  --sky: #3E9BD4;
+  --sky-light: #7EC8E3;
+  --green: #2A9D5C;
+  --green-light: #4FC98A;
+  --cream: #F4F8FC;
+  --white: #FFFFFF;
+  --muted: #7A99B8;
+  --text: #1A2E44;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(11,37,69,0.97);
+  backdrop-filter: blur(8px);
+  display: flex; justify-content:space-between; align-items:center;
+  padding: 0.9rem 2.5rem;
+  border-bottom: 2px solid var(--sky);
+}
+.nav-brand { display:flex; align-items:center; gap:0.75rem; text-decoration:none; }
+.nav-logo {
+  width:40px; height:40px; border-radius:50%;
+  background: linear-gradient(135deg, var(--sky), var(--green));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; font-weight:900; color:#fff;
+  font-family:'Tajawal',sans-serif;
+}
+.nav-title { color:#fff; font-size:1rem; font-weight:700; line-height:1.2; }
+.nav-subtitle { color:var(--sky-light); font-size:0.7rem; }
+.nav-links { display:flex; gap:1.5rem; list-style:none; }
+.nav-links a { color:var(--muted); text-decoration:none; font-size:0.88rem; transition:color .2s; }
+.nav-links a:hover { color:var(--sky-light); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 50%, #0E3A6B 100%);
+  display: flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding: 6rem 2rem 4rem;
+  position: relative; overflow:hidden;
+}
+
+.hero-shapes {
+  position:absolute; inset:0; pointer-events:none; overflow:hidden;
+}
+.shape {
+  position:absolute; border-radius:50%;
+  background: rgba(62,155,212,0.08);
+}
+.shape-1 { width:600px; height:600px; top:-200px; left:-200px; }
+.shape-2 { width:400px; height:400px; bottom:-100px; right:-100px; background:rgba(42,157,92,0.07); }
+.shape-3 { width:200px; height:200px; top:40%; left:70%; background:rgba(62,155,212,0.05); }
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:rgba(62,155,212,0.15); border:1px solid rgba(62,155,212,0.4);
+  color:var(--sky-light); padding:6px 18px; border-radius:50px;
+  font-size:0.8rem; margin-bottom:2rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.school-emblem {
+  width:130px; height:130px; border-radius:50%;
+  background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+  border: 3px solid var(--sky);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  margin: 0 auto 2rem;
+  box-shadow: 0 0 0 8px rgba(62,155,212,0.1), 0 0 0 16px rgba(62,155,212,0.05);
+  animation: fadeUp 0.8s 0.1s ease both;
+  position:relative; z-index:2;
+}
+.emblem-icon { font-size:3rem; line-height:1; }
+.emblem-text { font-size:0.6rem; color:var(--sky-light); letter-spacing:0.1em; margin-top:4px; }
+
+h1.school-name {
+  font-family:'Amiri', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color:#fff; line-height:1.15;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.school-name span { color:var(--sky-light); }
+
+.hero-desc {
+  font-size:1rem; color:var(--muted);
+  max-width:500px; margin:1.25rem auto 0;
+  line-height:1.8;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-stats {
+  display:flex; gap:2.5rem; justify-content:center; flex-wrap:wrap;
+  margin-top:3rem;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.stat-item { text-align:center; }
+.stat-number {
+  font-family:'Tajawal',sans-serif;
+  font-size:2.2rem; font-weight:900;
+  color:var(--sky-light); line-height:1;
+}
+.stat-label { font-size:0.8rem; color:var(--muted); margin-top:4px; }
+
+.hero-divider {
+  display:flex; align-items:center; gap:1rem;
+  margin:3rem auto 0; width:350px;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+.hero-divider .line { flex:1; height:1px; background:rgba(62,155,212,0.3); }
+.hero-divider .dot { width:6px; height:6px; border-radius:50%; background:var(--sky); }
+
+/* SECTION COMMONS */
+.section-wrap { padding:5rem 2rem; }
+.section-inner { max-width:1100px; margin:0 auto; }
+
+.section-head { text-align:center; margin-bottom:3.5rem; }
+.section-tag {
+  display:inline-block;
+  font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--sky); background:rgba(62,155,212,0.1);
+  padding:5px 16px; border-radius:50px; margin-bottom:0.75rem;
+}
+.section-title {
+  font-family:'Amiri',serif;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  color:var(--navy);
+}
+
+/* VALUES */
+.values-wrap { background:#fff; }
+.values-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;
+}
+.value-card {
+  background:var(--cream);
+  border:1.5px solid #E0ECF7;
+  border-radius:12px; padding:2rem 1.5rem;
+  text-align:center;
+  transition:border-color .3s, transform .2s, box-shadow .3s;
+}
+.value-card:hover {
+  border-color:var(--sky);
+  transform:translateY(-5px);
+  box-shadow:0 8px 32px rgba(62,155,212,0.12);
+}
+.value-icon {
+  width:64px; height:64px; border-radius:16px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:2rem; margin:0 auto 1.25rem;
+}
+.v-blue { background:rgba(62,155,212,0.12); }
+.v-green { background:rgba(42,157,92,0.12); }
+.v-orange { background:rgba(230,126,34,0.12); }
+.v-purple { background:rgba(142,68,173,0.12); }
+
+.value-title {
+  font-size:1.1rem; font-weight:700; color:var(--navy);
+  margin-bottom:0.5rem;
+}
+.value-desc { font-size:0.88rem; color:#5A7A99; line-height:1.7; }
+
+/* GRADES */
+.grades-wrap { background:var(--navy); }
+.grades-wrap .section-title { color:#fff; }
+.grades-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1rem;
+}
+.grade-card {
+  background:var(--navy-mid);
+  border:1px solid rgba(62,155,212,0.2);
+  border-radius:10px; padding:1.5rem;
+  text-align:center;
+  transition:background .3s, border-color .3s;
+}
+.grade-card:hover { background:rgba(62,155,212,0.15); border-color:var(--sky); }
+.grade-num {
+  font-family:'Amiri',serif; font-size:2.5rem; color:var(--sky-light);
+  line-height:1;
+}
+.grade-name { font-size:0.9rem; color:var(--muted); margin-top:6px; }
+
+/* FEATURES */
+.features-wrap { background:#fff; }
+.features-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem;
+}
+.feature-item {
+  display:flex; gap:1.25rem; align-items:flex-start;
+}
+.feature-num {
+  width:48px; height:48px; border-radius:12px;
+  background:linear-gradient(135deg, var(--sky), var(--navy-light));
+  color:#fff; font-weight:900; font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.feature-title { font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:0.4rem; }
+.feature-desc { font-size:0.88rem; color:#5A7A99; line-height:1.7; }
+
+/* LOCATION */
+.location-wrap { background:var(--cream); }
+.location-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center;
+}
+.location-map {
+  background:var(--navy);
+  border-radius:16px; overflow:hidden;
+  height:300px; position:relative;
+  display:flex; align-items:center; justify-content:center;
+  border:2px solid rgba(62,155,212,0.3);
+}
+.map-placeholder {
+  text-align:center; color:var(--muted);
+}
+.map-pin { font-size:4rem; display:block; margin-bottom:1rem; }
+.map-caption { font-size:0.85rem; line-height:1.6; }
+.location-info-list { list-style:none; }
+.location-info-list li {
+  display:flex; gap:1rem; align-items:flex-start;
+  padding:1rem 0; border-bottom:1px solid #D8E8F5;
+}
+.location-info-list li:last-child { border-bottom:none; }
+.li-icon {
+  width:40px; height:40px; border-radius:10px;
+  background:rgba(62,155,212,0.1); display:flex; align-items:center;
+  justify-content:center; font-size:1.2rem; flex-shrink:0;
+}
+.li-label { font-size:0.75rem; color:var(--muted); }
+.li-value { font-size:0.95rem; font-weight:600; color:var(--navy); margin-top:2px; }
+
+/* CTA */
+.cta-wrap {
+  background: linear-gradient(135deg, var(--navy-light), var(--green));
+  text-align:center; padding:5rem 2rem;
+}
+.cta-wrap h2 {
+  font-family:'Amiri',serif; font-size:clamp(2rem,5vw,3rem);
+  color:#fff; margin-bottom:1rem;
+}
+.cta-wrap p { color:rgba(255,255,255,0.75); font-size:1rem; margin-bottom:2.5rem; }
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-white {
+  background:#fff; color:var(--navy);
+  padding:0.85rem 2.5rem; border-radius:6px;
+  font-family:'Tajawal',sans-serif; font-size:1rem; font-weight:700;
+  text-decoration:none; transition:transform .2s, box-shadow .2s;
+  border:none; cursor:pointer;
+}
+.btn-white:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+.btn-ghost-white {
+  background:transparent; color:#fff;
+  padding:0.85rem 2.5rem; border-radius:6px;
+  font-family:'Tajawal',sans-serif; font-size:1rem; font-weight:500;
+  text-decoration:none; transition:background .2s;
+  border:2px solid rgba(255,255,255,0.5); cursor:pointer;
+}
+.btn-ghost-white:hover { background:rgba(255,255,255,0.1); }
+
+/* FOOTER */
+footer {
+  background:var(--navy); color:var(--muted);
+  text-align:center; padding:2.5rem 2rem;
+  border-top:2px solid rgba(62,155,212,0.2);
+}
+footer .foot-name {
+  font-family:'Amiri',serif; font-size:1.6rem; color:var(--sky-light);
+  margin-bottom:0.5rem;
+}
+footer p { font-size:0.82rem; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@media (max-width:700px) {
+  .nav-links { display:none; }
+  .location-grid { grid-template-columns:1fr; }
+  .hero-stats { gap:1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">ح</div>
+    <div>
+      <div class="nav-title">مدرسة حنينا الأساسية</div>
+      <div class="nav-subtitle">المختلطة · مادبا</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">عن المدرسة</a></li>
+    <li><a href="#grades">الصفوف</a></li>
+    <li><a href="#features">مميزاتنا</a></li>
+    <li><a href="#location">موقعنا</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <div class="hero-badge">
+    <span>🏫</span> مدرسة حكومية أساسية مختلطة · مادبا، الأردن
+  </div>
+
+  <div class="school-emblem">
+    <div class="emblem-icon">🎓</div>
+    <div class="emblem-text">حنينا · مادبا</div>
+  </div>
+
+  <h1 class="school-name">
+    مدرسة <span>حنينا</span><br>الأساسية المختلطة
+  </h1>
+
+  <p class="hero-desc">
+    مؤسسة تعليمية أساسية تخدم أبناء منطقة حنينا في محافظة مادبا،
+    تسعى إلى بناء جيل متعلم ومتميز في بيئة دراسية داعمة ومحفزة.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-number">10</div>
+      <div class="stat-label">صفوف دراسية</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">♂♀</div>
+      <div class="stat-label">مختلطة</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">📚</div>
+      <div class="stat-label">تعليم أساسي</div>
+    </div>
+  </div>
+
+  <div class="hero-divider">
+    <div class="line"></div>
+    <div class="dot"></div>
+    <div class="dot" style="background:var(--green-light);"></div>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="values-wrap section-wrap" id="about">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-tag">رسالتنا وقيمنا</span>
+      <h2 class="section-title">نبني المستقبل بالعلم والقيم</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon v-blue">📖</div>
+        <h3 class="value-title">التعليم الجيد</h3>
+        <p class="value-desc">نوفر بيئة تعليمية محفزة تضمن تحصيلاً علمياً متميزاً لجميع الطلاب</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon v-green">🌱</div>
+        <h3 class="value-title">التنمية الشاملة</h3>
+        <p class="value-desc">نهتم بالنمو الأكاديمي والاجتماعي والوجداني لكل طالب وطالبة</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon v-orange">🤝</div>
+        <h3 class="value-title">الشراكة المجتمعية</h3>
+        <p class="value-desc">نعمل بتعاون وثيق مع أولياء الأمور والمجتمع المحلي في حنينا</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon v-purple">⭐</div>
+        <h3 class="value-title">القيم الأصيلة</h3>
+        <p class="value-desc">نغرس في الطلاب الانتماء الوطني والقيم الإسلامية والإنسانية النبيلة</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GRADES -->
+<div class="grades-wrap section-wrap" id="grades">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-tag" style="color:var(--sky-light); background:rgba(62,155,212,0.15);">المراحل الدراسية</span>
+      <h2 class="section-title">الصفوف من الأول إلى العاشر</h2>
+    </div>
+    <div class="grades-grid">
+      <div class="grade-card">
+        <div class="grade-num">١</div>
+        <div class="grade-name">الصف الأول</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٢</div>
+        <div class="grade-name">الصف الثاني</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٣</div>
+        <div class="grade-name">الصف الثالث</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٤</div>
+        <div class="grade-name">الصف الرابع</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٥</div>
+        <div class="grade-name">الصف الخامس</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٦</div>
+        <div class="grade-name">الصف السادس</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٧</div>
+        <div class="grade-name">الصف السابع</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٨</div>
+        <div class="grade-name">الصف الثامن</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">٩</div>
+        <div class="grade-name">الصف التاسع</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-num">١٠</div>
+        <div class="grade-name">الصف العاشر</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features-wrap section-wrap" id="features">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-tag">لماذا مدرستنا؟</span>
+      <h2 class="section-title">ما يميّزنا</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-num">١</div>
+        <div>
+          <h4 class="feature-title">كادر تعليمي متخصص</h4>
+          <p class="feature-desc">معلمون ومعلمات متأهلون يحملون الكفاءة والخبرة في مجال التعليم الأساسي</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">٢</div>
+        <div>
+          <h4 class="feature-title">بيئة مختلطة آمنة</h4>
+          <p class="feature-desc">بيئة مدرسية مختلطة تحترم القيم وتُشجع على التعاون والاحترام المتبادل</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">٣</div>
+        <div>
+          <h4 class="feature-title">مناهج وزارة التربية</h4>
+          <p class="feature-desc">نطبق المناهج الأردنية الرسمية الصادرة عن وزارة التربية والتعليم</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">٤</div>
+        <div>
+          <h4 class="feature-title">أنشطة لا منهجية</h4>
+          <p class="feature-desc">برامج رياضية وثقافية وفنية لتنمية مواهب الطلاب خارج الحصص الدراسية</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">٥</div>
+        <div>
+          <h4 class="feature-title">قرب من المجتمع</h4>
+          <p class="feature-desc">تقع في قلب منطقة حنينا، قريبة من منازل الطلاب وسهلة الوصول</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-num">٦</div>
+        <div>
+          <h4 class="feature-title">متابعة أولياء الأمور</h4>
+          <p class="feature-desc">تواصل منتظم ومستمر مع أسر الطلاب لضمان متابعة مستوى التحصيل</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<div class="location-wrap section-wrap" id="location">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-tag">تواصل معنا</span>
+      <h2 class="section-title">موقع المدرسة</h2>
+    </div>
+    <div class="location-grid">
+      <div class="location-map">
+        <div class="map-placeholder">
+          <span class="map-pin">📍</span>
+          <p class="map-caption" style="color:#7A99B8;">
+            حنينا، مادبا<br>
+            <span style="font-size:0.8rem; color:#4A6A88;">PRH5+FJW، حنينا، مادبا</span>
+          </p>
+          <a href="https://maps.google.com/?q=PRH5+FJW+حنينا+مادبا" target="_blank"
+             style="display:inline-block; margin-top:1rem; background:var(--sky); color:#fff;
+             padding:8px 20px; border-radius:6px; font-size:0.85rem; text-decoration:none;">
+            فتح في خرائط جوجل ↗
+          </a>
+        </div>
+      </div>
+      <ul class="location-info-list">
+        <li>
+          <div class="li-icon">📍</div>
+          <div>
+            <div class="li-label">العنوان</div>
+            <div class="li-value">حنينا، محافظة مادبا، الأردن</div>
+          </div>
+        </li>
+        <li>
+          <div class="li-icon">🗺️</div>
+          <div>
+            <div class="li-label">الرمز البريدي (Plus Code)</div>
+            <div class="li-value">PRH5+FJW</div>
+          </div>
+        </li>
+        <li>
+          <div class="li-icon">🏫</div>
+          <div>
+            <div class="li-label">نوع المدرسة</div>
+            <div class="li-value">مدرسة حكومية أساسية مختلطة</div>
+          </div>
+        </li>
+        <li>
+          <div class="li-icon">📚</div>
+          <div>
+            <div class="li-label">المرحلة الدراسية</div>
+            <div class="li-value">الأول أساسي حتى العاشر</div>
+          </div>
+        </li>
+        <li>
+          <div class="li-icon">🏛️</div>
+          <div>
+            <div class="li-label">التبعية</div>
+            <div class="li-value">وزارة التربية والتعليم · الأردن</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap">
+  <h2>انضم إلى عائلة مدرسة حنينا</h2>
+  <p>نرحب بتسجيل الطلاب الجدد في جميع الصفوف من الأول حتى العاشر</p>
+  <div class="cta-buttons">
+    <a href="https://maps.google.com/?q=PRH5+FJW+حنينا+مادبا" target="_blank" class="btn-white">📍 زر المدرسة</a>
+    <a href="#about" class="btn-ghost-white">اعرف أكثر عنّا</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-name">مدرسة حنينا الأساسية المختلطة</div>
+  <p>حنينا · محافظة مادبا · المملكة الأردنية الهاشمية</p>
+  <p style="margin-top:1rem; font-size:0.75rem; color:#3A5A7A;">
+    © 2025 مدرسة حنينا الأساسية المختلطة · جميع الحقوق محفوظة
+  </p>
+</footer>
+
+</body>
+</html>
